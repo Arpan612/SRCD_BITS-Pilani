@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>SRCD</title>
+  <!-- CSS and JS links (Bootstap and Firebase) -->
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+  <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-database.js"></script>
+</head>
+<body>
+
+<div class="container">
+<h2 class="text-primary"style="position:relative;">Appication for travel grants - SRCD BITS Pilani </h2>
+<form action="" method="POST" id="registrationform" class="w-100 single-form quate-form wow fadeInUp" data-toggle="validator" novalidate="true" style="visibility: visible; animation-name: fadeInUp;">
+
+    <div class="row">
+        <div class="col-md-6">
+          <div class="form-group" >
+            <label for="date">Date</label>
+            <input id="date" type="text" class="form-control"/>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="name">Applicant's Full Name</label>
+            <input  id="applicantname" type="text" class="form-control" />
+          </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+              <label for="idno">ID number</label>
+              <input  id="idno" type="text" class="form-control"/>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <input type="email" class="form-control" id="email"  placeholder="Enter email">
+            </div>
+          </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+              <div class="form-group">
+                <label for="mobno">Mobile No.</label>
+                <input type="text" class="form-control" placeholder="Please enter Mobile Number" id="mobno">
+              </div>
+        </div>
+
+        <div class="col-md-6">
+              <div class="form-group">
+                <label for="supervisorname">Supervisor's Name</label>
+                <input type="text" class="form-control" placeholder="" id="supervisorname">
+              </div>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+          <div class="form-group">
+            <label for="department">Department</label>
+            <input type="text" class="form-control" placeholder="" id="department">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+
+      <div class="form-group">
+          <label for="purposeofvisit">Purpose of the visit</label>
+            <select multiple class="form-control" id="purposeofvisit">
+            <option value="Presenting Paper">Presenting Paper</option>
+            <option value="Presenting Poster">Presenting Poster</option>
+            <option value="Presenting Paper">Attending Workshop</option>
+            </select>
+      </div>
+      </div>
+      <div class="form-group">
+          <label for="paperaccepted">Has the paper been accepted?</label>
+          <select multiple class="form-control" id="paperaccepted">
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+          </select>
+      </div>
+      <div class="row">
+
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="title">Title of the poster/paper</label>
+        <input type="text" class="form-control" placeholder="" id="title">
+      </div>
+    </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+          <label for="conferencetype">Conference Type</label>
+            <select multiple class="form-control" id="conferencetype">
+            <option value="National">National</option>
+            <option value="International">International</option>
+            </select>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="venue">Venue</label>
+        <input type="text" class="form-control" placeholder="" id="venue">
+      </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+          <label for="dateevent">Date of event</label>
+          <input type="text" class="form-control" placeholder="" id="dateevent">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+          <label for="organized">Organized by</label>
+          <input type="text" class="form-control" placeholder="" id="organized">
+        </div>
+    </div>
+    <div class="row">
+      <label for="nameconference">Financial Involvements (Rs)</label>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="bustaxi">Bus/Taxi</label>
+          <input type="text" class="form-control" placeholder="" id="bustaxi">
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+     <div class="form-group">
+      <label for="railairfare">Rail/Air fare</label>
+      <input type="text" class="form-control" placeholder="" id="railairfare">
+     </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="allowance">Daily allowance</label>
+        <input type="text" class="form-control" placeholder="" id="allowance">
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="fee">Registration fee</label>
+        <input type="text" class="form-control" placeholder="" id="fee">
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+          <label for="currentfinancial">Have you availed the travel grant in Current Financial year?</label>
+          <select multiple class="form-control" id="currentfinancial">
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+          </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+        <label for="details">If yes, provide details (Year, Title of paper, conference):</label>
+        <input type="text" class="form-control" placeholder="" id="details">
+    </div>
+
+
+    <div class="row">
+
+        <div class="col-md-6">
+        <label for="acceptance">Acceptance of the paper</label>
+        <select multiple class="form-control" id="acceptance">
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+        </select>
+        <label for="copy">Copy of the abstract</label>
+        <select multiple class="form-control" id="copy">
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+        </select>
+        <label for="brochure">Brochure of Conference/seminar/workshop</label>
+        <select multiple class="form-control" id="brochure">
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+        </select>
+        </div>
+    </div>
+
+
+    <button  class="btn btn-primary" style="margin-top:25vh; width:30vw;position: absolute; left:30vw;" type="submit" sendMessage() id="form-submit" type="submit" sendMessage()>Send Message</button>
+  </form>
+</div>
+<!-- JS file -->
+<script>
+  // Firebas e config
+const config = {
+  apiKey: "AIzaSyCrKNxW3S-00z3GcRCXE232WgTGaNBbPIk",
+  authDomain: "travel-grant-form.firebaseapp.com",
+  databaseURL: "https://travel-grant-form.firebaseio.com",
+  projectId: "travel-grant-form",
+  storageBucket: "travel-grant-form.appspot.com",
+  messagingSenderId: "87343215766",
+  appId: "1:87343215766:web:5922a651a0b85066013eb7",
+  measurementId: "G-R1CEXQE07J"
+};
+firebase.initializeApp(config);
+let traveldata = firebase.database().ref('travel-grant-form');
+document.getElementById('registrationform').addEventListener("submit", formSubmit);
+
+function formSubmit(e) {
+  e.preventDefault();
+  let date = document.querySelector('#date').value; //apis for date
+  let applicantname = document.querySelector('#applicantname').value;
+  let idno = document.querySelector('#idno').value;
+  let email = document.querySelector('#email').value;
+  let mobno = document.querySelector('#mobno').value;
+  let supervisorname = document.querySelector('#supervisorname').value;
+  let department = document.querySelector('#department').value;
+  let purposeofvisit = document.querySelector('#purposeofvisit').value;
+  let paperaccepted = document.querySelector('#paperaccepted').value;
+  let title = document.querySelector('#title').value;
+  let conferencetype = document.querySelector('#conferencetype').value;
+  let venue = document.querySelector('#venue').value;
+  let dateevent = document.querySelector('#dateevent').value;
+  let organized = document.querySelector('#organized').value;
+  let bustaxi = document.querySelector('#bustaxi').value;
+  let railairfare = document.querySelector('#railairfare').value;
+  let allowance = document.querySelector('#allowance').value;
+  let fee = document.querySelector('#fee').value;
+  let currentfinancial = document.querySelector('#currentfinancial').value;
+  let details = document.querySelector('#details').value;
+  let acceptance = document.querySelector('#acceptance').value;
+  let copy = document.querySelector('#copy').value;
+  let brochure = document.querySelector('#brochure').value;
+  let data = {
+      date: String(date),
+      applicantname: String(applicantname),
+      idno : String(idno),
+      email: String(email),
+      mobno: String(mobno),
+      supervisorname: String(supervisorname),
+      department: String(department),
+      purposeofvisit: String(purposeofvisit),
+      paperaccepted: String(paperaccepted),
+      title: String(title),
+      conferencetype: String(conferencetype),
+      venue: String(venue),
+      dateevent: String(dateevent),
+      organized: String(organized),
+      bustaxi: String(bustaxi),
+      railairfare: String(railairfare),
+      allowance: String(allowance),
+      fee: String(fee),
+      currentfinancial: String(currentfinancial),
+      details: String(details),
+      acceptance: String(acceptance),
+      copy: String(copy),
+      brochure: String(brochure)
+    }
+
+  sendMessage(data);
+  document.getElementById('registrationform').reset();
+console.log(document.querySelector('#idno').value);
+  }
+function sendMessage(data) {
+  let newFormMessage = traveldata.push();
+  newFormMessage.set(data);
+console.log(data);
+alert("message sent");
+}
+</script>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
+</body>
+</html>
